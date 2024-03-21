@@ -1,0 +1,73 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "gecko",
+  "patterns": [
+    {
+      "name": "comment.line.number-sign.gecko",
+      "match": "#.*$"
+    },
+    {
+      "name": "string.quoted.double.gecko",
+      "begin": "\"",
+      "end": "\""
+    },
+    {
+      "name": "entity.name.function.gecko",
+      "match": "\\.[a-z_][a-z_.]+[a-z]"
+    },
+    {
+      "name": "constant.numeric.gecko",
+      "match": "\\b(true|false|nil)\\b"
+    },
+    {
+      "name": "keyword.control.gecko",
+      "match": "\\b(end|throw|then|else|value|catch|signal|emit|on|fn|def|val|let|if|do|panic|and|or|while|when|map.merge|map.delete|map.keys|map.values|map.read|map.write|map.extract|array.read|array.write|array.for|array.map|array.filter|array.reduce|array.push|array.pop|array.shift|array.unshift|array.segment|array.find|array.splice|array.reverse|array.sort|std.write|http|split|substring|concat|chars|effect)\\b"
+    },
+    {
+      "name": "keyword.control.gecko",
+      "match": "\\b(array|map)\\b"
+    },
+    {
+      "name": "keyword.operator.gecko",
+      "match": "\\b==|!=|>=|<=|<|>|\\+|-|\\*\\b"
+    },
+    {
+      "name": "constant.numeric.gecko",
+      "match": "\\b\\d+(\\.\\d+)?\\b"
+    },
+    {
+      "name": "constant.numeric.gecko",
+      "match": "\\b[A-Z_]+\\b"
+    },
+    {
+      "name": "variable.other.object",
+      "match": "\\b([A-Z][a-z]+)+\\b"
+    },
+    {
+      "name": "variable.other",
+      "match": "\\b[a-z_][a-z_.]+\\b"
+    },
+    {
+      "name": "variable.other",
+      "match": "[a-z_]+"
+    }
+  ],
+  "repository": {
+    "nested_parentheses": {
+      "patterns": [
+        {
+          "include": "#nested_parentheses"
+        },
+        {
+          "match": "\\(",
+          "name": "punctuation.section.parentheses.begin.gecko"
+        },
+        {
+          "match": "\\)",
+          "name": "punctuation.section.parentheses.end.gecko"
+        }
+      ]
+    }
+  },
+	"scopeName": "source.gecko"
+}

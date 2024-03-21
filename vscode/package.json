@@ -1,0 +1,30 @@
+{
+  "name": "vscode-gecko",
+  "displayName": "vscode-gecko",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.86.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "gecko",
+      "aliases": ["gecko", "gecko"],
+      "extensions": [".fly"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "gecko",
+      "scopeName": "source.gecko",
+      "path": "./syntaxes/gecko.tmLanguage.json"
+    }]
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/killthebuddh4/gecko"
+  }
+}
