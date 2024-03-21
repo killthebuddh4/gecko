@@ -2,7 +2,7 @@
 
 Gecko is an experimental functional programming language and interpreter for radically distributed applications. Every local node in a Gecko program can be transparently replaced with a remote node. Remote nodes are accessed via RPC over the [XMTP](https://xmtp.org) protocol.
 
-XMTP is an end-to-end-encrypted messaging protocol which uses Ethereum addresses as identities. By using these decentralized, open protocols for _message passing_ (in the [Smalltalk sense](https://en.wikipedia.org/wiki/Message_passing) we may be able to bootstrap a computing environment with unheard levels of collaboration and composability.
+XMTP is an end-to-end-encrypted messaging protocol which uses Ethereum addresses as identities. By using these decentralized, open protocols for _message passing_ (in the [Smalltalk sense](https://en.wikipedia.org/wiki/Message_passing)) we may be able to bootstrap a computing environment with unheard levels of collaboration and composability.
 
 Gecko is heavily influenced by [Scheme](https://www.scheme.org/), [Smalltalk](https://en.wikipedia.org/wiki/Smalltalk) and [Ruby](https://www.ruby-lang.org/en/).
 
@@ -32,7 +32,7 @@ Thanks for checking out the project! If you think it's interesting I'd love to h
     - [Strings](#strings)
     - [Input and Output](#input-and-output)
     - [Signals and exceptions](#signals-and-exceptions)
-- [Run a script](#run-a-script)
+- [Run a Gecko script](#run-a-gecko-script)
 - [Testing](#testing)
 - [Roadmap](#roadmap)
     - [Phase 1, minimal language core](#phase-1-minimal-language-core)
@@ -585,7 +585,7 @@ index and the second index (exclusive).
 
 __TODO__
 
-## Run a script
+## Run a Gecko script
 
 _Requires `go` 1.21 or higher. Learn how to install `go` [here](https://go.dev/doc/install)._
 
