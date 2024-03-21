@@ -2,9 +2,9 @@
 
 Gecko is an experimental functional programming language and interpreter for radically distributed applications. Every local node in a Gecko program can be transparently replaced with a remote node. Remote nodes are accessed via RPC over the [XMTP](https://xmtp.org) protocol.
 
-XMTP is an end-to-end-encrypted messaging protocol which uses Ethereum addresses as identities. By using these decentralized, open protocols for _message passing_ (in the [Smalltalk sense](https://en.wikipedia.org/wiki/Message_passing)) we may be able to bootstrap a computing environment with unheard levels of collaboration and composability.
+XMTP is an end-to-end-encrypted messaging protocol which uses Ethereum addresses as identities. By using these decentralized, open protocols for _message passing_ (in the [Smalltalk sense](https://en.wikipedia.org/wiki/Message_passing)) we may be able to bootstrap a computing environment with unheard-of levels of collaboration and composability.
 
-Gecko is heavily influenced by [Scheme](https://www.scheme.org/), [Smalltalk](https://en.wikipedia.org/wiki/Smalltalk) and [Ruby](https://www.ruby-lang.org/en/).
+Gecko is heavily influenced by [Scheme](https://www.scheme.org/), [Smalltalk](https://en.wikipedia.org/wiki/Smalltalk), [Ruby](https://www.ruby-lang.org/en/), and [Erlang/Elixir](https://elixir-lang.org/).
 
 _This project and documentation are both under heavy development. To see how things are going, please see the [roadmap](#roadmap)._
 
@@ -12,13 +12,12 @@ _This project and documentation are both under heavy development. To see how thi
 
 Thanks for checking out the project! If you think it's interesting I'd love to hear from you (I'd love to hear criticism too, actually). The best ways to reach out are probably [Discord](https://discord.gg/wG9rEmw8), [Twitter](https://twitter.com/killthebuddha_), or [an issue](https://github.com/killthebuddh4/gecko/issues/new).
 
-## Contents
+## Table of contents
 
 - [Gecko](#gecko)
     - [👋 Say hi!](#-say-hi)
-- [Contents](#contents)
+- [Table of contents](#table-of-contents)
 - [Why?](#why)
-- [The language](#the-language)
 - [Syntax and semantics, overview](#syntax-and-semantics-overview)
 - [Syntax and semantics, reference](#syntax-and-semantics-reference)
     - [Blocks](#blocks)
@@ -46,21 +45,21 @@ Thanks for checking out the project! If you think it's interesting I'd love to h
 A few reasons (one intuitive, one practical, and one speculative):
 
 1. The intuitive reason is that decentralized, end-to-end-encrypted messaging for [message passing](https://en.wikipedia.org/wiki/Message_passing) simply _feels incredibly powerful_.
-2. The practical reason is that service discovery via public keys makes for an extremely simple software distribution mechanism, at least for "toy" software. No account creation, no DNS, no hosting. In certain cases you don't even need a web server because XMTP can run in the browser. This could be useful in certain situations e.g. in the classroom.
-3. We're heading towards a world where a large fraction (all, eventually) of software is encoded by, or generated on the fly, by an AI model. In that world the API may overtake the library as the primary method for sharing software.
+2. The practical reason is that service discovery via public keys makes for an extremely simple software distribution mechanism, at least for "toy" software. No installation, no imports, no account creation, no DNS, no hosting, just function calls. In certain cases you don't even need a web server because XMTP can run in the browser. This ease-of-use could be game-changing in certain situations e.g. in the classroom.
+3. We're heading towards a world where a large fraction (all, eventually) of software is encoded by, or generated on the fly by, an AI model. In that world the API may overtake the library as the most natural method for sharing software.
 
-## The language
+## Syntax and semantics, overview
 
 Gecko is a dynamically-typed, lexically-scoped, expression-oriented, interpreted, functional programming language with a Ruby-like syntax.
 
 __Some design goals__
 
+Other than the primary goal of exploring message passing via an open network, we have:
+
 - Beginner friendly
 - Uncluttered syntax (inspired by Ruby)
 - Semantic simplicity (inspired by Go)
 - Application-oriented (less "general purpose" than, say, Python)
-
-## Syntax and semantics, overview
 
 __Expressions__
 
@@ -75,7 +74,7 @@ In Gecko everything is an expression that returns a value. The kinds of expressi
 
 __Values and variables__
 
-Values can be bound to variables. Variables are referenced by name. All values are immutable but variables can be re-bound to new values. Gecko includes the following primitive types:
+Values can be bound to variables. Variables are referenced by name. All values are immutable but variables can be re-bound to new values. Gecko includes the following primitive value types:
 
 - string
 - number
@@ -139,7 +138,10 @@ Every function has a signature. A signature is a list of named parameters, their
       to_speed > 50
     end
 
-    # crash
+    then
+      # crash
+    end
+
     else
       # set the car's speed to the new speed
     end
@@ -213,9 +215,11 @@ end
 
 __A note on schemas__
 
-A schema in Gecko is a function used to validate values, especially values which are the arguments to or return from a fucntion. If you're a TypeScript programmer and have used [zod](https://github.com/colinhacks/zod) they should look familiar.
+A schema in Gecko is a function used to validate values, especially values which are the arguments to or return from a function. If you're a TypeScript programmer and have used [zod](https://github.com/colinhacks/zod) they should look familiar.
 
 When a function is called, each named argument is passed to its corresponding type. Each type is a parser function that validates the argument or throws. If a parameter's type is not specified, then `Identity` is used, which always succeeds. When a function returns a value to the caller, the function's return type is used to first parse the value.
+
+![Dataflow in a Gecko function call](./assets/gecko-function-call.png)
 
 __Comments__
 
@@ -227,7 +231,7 @@ All expressions, with a few exceptions, in a Gecko program tree are evaluated ac
 
 ## Syntax and semantics, reference
 
-__Please note that this section has gone stale. For current examples of syntax and usage please see the [examples](./examples/) or [tests](./tests/).__
+*__Please note that this section has gone stale. For current examples of syntax and usage please see the [examples](./examples/) or [tests](./tests/).__*
 
 #### Blocks
 
@@ -609,9 +613,7 @@ done
  ./test.sh
  ```
 
- The goal is to have tests commensurate with the maturity of the project and its
- components. The near term goal is to have something like 100% coverage for the
- core language keywords. Basically, this means "all of the keywords and
+ The goal is to have test coverage commensurate to the maturity of the project and its components. The near term goal is to have something like 100% coverage for the core language keywords. Basically, this means "all of the keywords and
  operators". We'll do this incrementally, in phases.
 
 ## Roadmap
