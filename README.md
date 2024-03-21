@@ -14,6 +14,33 @@ Thanks for checking out the project! If you think it's interesting I'd love to h
 
 ## Contents
 
+- [Gecko](#gecko)
+    - [👋 Say hi!](#-say-hi)
+- [Contents](#contents)
+- [Why?](#why)
+- [The language](#the-language)
+- [Syntax and semantics, overview](#syntax-and-semantics-overview)
+- [Syntax and semantics, reference](#syntax-and-semantics-reference)
+    - [Blocks](#blocks)
+    - [Variables](#variables)
+    - [Values](#values)
+    - [Lambdas, parameters, and arguments](#lambdas-parameters-and-arguments)
+    - [Predicates, operators, and literals](#predicates-operators-and-literals)
+    - [Branching](#branching)
+    - [Arrays](#arrays)
+    - [Maps](#maps)
+    - [Strings](#strings)
+    - [Input and Output](#input-and-output)
+    - [Signals and exceptions](#signals-and-exceptions)
+- [Run a script](#run-a-script)
+- [Testing](#testing)
+- [Roadmap](#roadmap)
+    - [Phase 1, minimal language core](#phase-1-minimal-language-core)
+    - [Phase 2, the rest of the core](#phase-2-the-rest-of-the-core)
+    - [Phase 3, XMTP RPC](#phase-3-xmtp-rpc)
+    - [Phase 4, nice to haves](#phase-4-nice-to-haves)
+
+
 ## Why?
 
 A few reasons (one intuitive, one practical, and one speculative):
@@ -558,7 +585,7 @@ index and the second index (exclusive).
 
 __TODO__
 
-# Run a script
+## Run a script
 
 _Requires `go` 1.21 or higher. Learn how to install `go` [here](https://go.dev/doc/install)._
 
